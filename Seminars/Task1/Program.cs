@@ -1,4 +1,4 @@
-﻿// программа выдающая квадрат числа
+﻿// программа для нахождения верности квадрата числа
 int Prompt(string message)
 {
     System.Console.Write(message);          // Вывести сообщение
@@ -7,7 +7,17 @@ int Prompt(string message)
     return result;                          // Возвращает результат
 }
 
-int value;                                  // Объявление переменной
-value = Prompt("Введите значение");         // Вводим значение
-int  result = value * value;                
-System.Console.WriteLine($"Квадрат числа {value} равен {result}");         // Вывод результата
+int a;                                  // Объявление переменной
+int b;
+a = Prompt("Введите число");
+b = Prompt("Введите предполагаемые квадрат числа");     // Вводим значение
+if (a * a == b)
+{
+    System.Console.WriteLine("Да");
+}
+else
+{
+    System.Console.WriteLine("Нет");
+}
+
+
