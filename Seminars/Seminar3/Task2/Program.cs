@@ -9,27 +9,27 @@ int Prompt(string message)
     return result;                          // Возвращает результат
 }
 
-int ShowCoord(int number)
+string ShowCoord(int number)
 {
     if (number < 1 && number > 4)
     {
-        System.Console.WriteLine("Не правильно указана четверть");
+      return System.Console.WriteLine("Не правильно указана четверть");
     }
     if (number == 1)
     {
-       System.Console.WriteLine("X > 0 и Y > 0");
+      return System.Console.WriteLine("X > 0 и Y > 0");
     }
     if (number == 2)
     {
-        System.Console.WriteLine("X < 0 и Y > 0");
+      return System.Console.WriteLine("X < 0 и Y > 0");
     }
     if (number == 3)
     {
-        System.Console.WriteLine("X < 0 и Y < 0");
+      return System.Console.WriteLine("X < 0 и Y < 0");
     }
     if (number == 4)
     {
-        System.Console.WriteLine("X > 0 и Y < 0");
+      return System.Console.WriteLine("X > 0 и Y < 0");
     }
     // else
     // {
@@ -39,4 +39,4 @@ int ShowCoord(int number)
 
 int number = Prompt("Введите номер четверти > ");
 
-int quarter = ShowCoord(number);
+string quarter = ShowCoord(number);
