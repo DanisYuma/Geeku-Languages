@@ -7,21 +7,21 @@ int Prompt(string message)
     return result;                          // Возвращает результат
 }
 
-int Get3Digit(int number)
+int Get3Digit(int value)                    //  value число передаваемое функции
 {
-    while (number > 1000)
+    while (value > 1000)
     {
-        number = number / 10;
+        value = value / 10;
     }
-    int third = number % 10;
-    return third;
+    int third = value % 10;
+    return third;                           // Возврат результата функции
 }
 
-int number = Prompt("Введите число>");       // Объявление переменной
+int number = Prompt("Введите число>");      // Объявление переменной
 if (number > 99)
 {
-    int third = Get3Digit(number);
-    System.Console.WriteLine($"Третья цифра - {third}");
+    int res = Get3Digit(number);                        // в функцию Get3Digit передаем объявленную переменную. number >> value
+    System.Console.WriteLine($"Третья цифра - {res}");  // Функция возвращает нам third и записывает в переменную res
 }
 else
 {
