@@ -22,14 +22,14 @@ void printArray(int[] array)                      // Печать массива
 
 int SecondMax(int[] array)
 {
-    int max = 0;
+    int max = array[0];
     for (int i = 0; i < array.Length; i++)
         if (array[i] > max)
         {
             max = array[i];
         }
 
-    int second = 0;
+    int second = array[0];
     for (int j = 0; j < array.Length; j++)
         if (array[j] > second && array[j] < max)
         {
