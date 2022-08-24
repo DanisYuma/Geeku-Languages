@@ -43,6 +43,7 @@ bool FindElement(int[] array, int number)
 int[] array = CreateArray(12, -9, 9);
 PrintArray(array);
 int element = Prompt("Введите число> ");
+
 if (FindElement(array, element))
 {
     System.Console.WriteLine("Да");
