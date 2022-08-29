@@ -23,7 +23,7 @@ bool PossibleTriange (int side1, int side2, int side3)
 
 }
 
-if (PossibleTriange(Prompt("1 сторона>"), Prompt("2 сторона>"), Prompt("3 сторона>")))
+if (PossibleTriange(Prompt("1 сторона> "), Prompt("2 сторона> "), Prompt("3 сторона> ")))
 {
     System.Console.WriteLine("Треугольник существует");
 }
