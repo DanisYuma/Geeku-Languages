@@ -3,7 +3,6 @@
 int Prompt(string message)
 {
     Console.ForegroundColor = ConsoleColor.White;
-
     System.Console.Write(message);
     string input = System.Console.ReadLine();
     int result = int.Parse(input);
