@@ -1,4 +1,4 @@
-﻿// Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
+﻿// Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
 
 double[,] FillArray(int rows, int columns, int min, int max)
 {
@@ -24,5 +24,5 @@ void PrintArray(double[,] matrix)
     }
 }
 
-double[,] matrix = FillArray(3, 4, 9, 11);
+double[,] matrix = FillArray(3, 4, 0, 11);
 PrintArray(matrix);
