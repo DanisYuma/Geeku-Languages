@@ -15,7 +15,7 @@ int[,] FillArray(int rows, int columns, int min, int max)
     return matrix;
 }
 
-void PrintArray(int[,] matrix)
+void PrintArray2D(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -25,31 +25,59 @@ void PrintArray(int[,] matrix)
     }
 }
 
-int [] MaxValueInRows (int [,] matrix)
+void PrintArray(int[] array)
 {
-    int [] maxValuesInRows = new int[matrix.GetLength(0)];
+    for (int i = 0; i < array.Length; i++)
+    { Console.Write($"{array[i]} \t"); }
+    Console.WriteLine();
+}
+
+int[] MaxValueInRows(int[,] matrix)
+{
+    int[] maxValuesInRows = new int[matrix.GetLength(0)];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        maxValuesInRows = matrix[0,0];
-        for (int j = 1; j<matrix.GetLength(1);j++)
-    }
-
-}
-
-void AvrgEachColumn(int[,] matrix)
-{
-    double[] averageColumn = new double[matrix.GetLength(1)];
-    for (int i = 0; i < matrix.GetLength(1); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(0); j++)
+        maxValuesInRows[i] = int.MinValue;
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            averageColumn[i] += matrix[j, i];                       // Не =+ а "+=". 2 часа искал что не так
+            if (matrix[i, j] > maxValuesInRows[i])
+                maxValuesInRows[i] = matrix[i, j];
         }
-        averageColumn[i] /= matrix.GetLength(0);
-        System.Console.Write($"{averageColumn[i]}\t");
     }
+    return maxValuesInRows;
 }
-int[,] matrix = FillArray(2, 4, -9, 9);
-PrintArray(matrix);
+
+int[] MinValueInColumns(int[,] matrix)
+{
+    int[] minValuesInColumns = new int[matrix.GetLength(1)];
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        minValuesInColumns[j] = int.MaxValue;
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            if (matrix[j, i] < minValuesInColumns[j])
+                minValuesInColumns[j] = matrix[j, i];
+        }
+    }
+    return minValuesInColumns;
+}
+
+int SumArray(int[] array)
+{
+    int sum = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        sum += array[i];
+    }
+    return sum;
+}
+
+int[,] matrix = FillArray(3, 4, 0, 9);
+PrintArray2D(matrix);
 System.Console.WriteLine();
-AvrgEachColumn(matrix);
+MaxValueInRows(matrix);
+PrintArray(MaxValueInRows(matrix));
+MinValueInColumns(matrix);
+PrintArray(MinValueInColumns(matrix));
+System.Console.WriteLine($"{SumArray(MaxValueInRows(matrix))}");
+System.Console.WriteLine($"{SumArray(MinValueInColumns(matrix))}");
